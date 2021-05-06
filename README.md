@@ -1,6 +1,1 @@
-## Meeting Scheduler Low Level Design
-
-- Schedules meeting with a meeting room at specified time interval.
-- Successfull booking notifies all attendees
-- Failure booking notifies the organizer
-- Meeting room has unlimited capacity
+<p align="center"><img src="https://raw.githubusercontent.com/kartik1998/confm/master/logo.png"> </p>

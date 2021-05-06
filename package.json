@@ -1,0 +1,18 @@
+{
+  "name": "confm",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "node build/index.js",
+    "compile": "tsc -p tsconfig.json",
+    "build": "npm run compile && npm run start"
+  },
+  "author": "Kartik Rawat",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "@types/node": "^14.14.6"
+  }
+}

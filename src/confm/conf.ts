@@ -41,6 +41,12 @@ class Conf {
       return store.get(key);
     }
   }
+
+  public static set(key: string, value: any, storeName: string = 'env'): boolean {
+    const store = Conf.getStore(storeName);
+    if(!store) return false;
+    return store.set(key, value);
+  }
 }
 
 export default Conf;

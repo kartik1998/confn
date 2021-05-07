@@ -82,6 +82,19 @@ https://staging.co
 
  
 
+## set, override and hardSet
 
+* You can use the above three methods to set keys.
+
+```javascript
+const Conf = require('confm');
+Conf.set('HOST', 1);
+Conf.override('HOST', 12);
+Conf.hardSet('HOST', 123);
+
+```
+
+* The difference between these methods is that though you can use set to update / add a key, value pair. You <b> cannot set </b> a key if it has been overriden. i.e. if `Conf.override(key, value)` has been used on that specific key. However if you really want to update that key then you <b> can </b> use `Conf.hardSet(key, value)` to update that key.
+* The above three methods are used in `Conf.init(config)`. First the environment keys are set by using the override method. And after that the keys under `defaults` are set. (Which is why the environment has more precedence than defaults). After that the `staging`, `production` etc. `NODE_ENV` key, value pairs are set with the `hardSet` method hence they have the highest precedence.
 
 

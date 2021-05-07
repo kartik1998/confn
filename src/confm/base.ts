@@ -2,9 +2,10 @@
  * @Base abstract base class for confm stores
  */
 abstract class Base {
-  public abstract set(key: string, value: any): void;
+  public abstract set(key: string, value: any): boolean;
   public abstract get(key: string): any;
-  public abstract override(key: string, value: any): void;
+  public abstract override(key: string, value: any): boolean;
+  public abstract hardSet(key: string, value: any): boolean;
 }
 
 export default Base;

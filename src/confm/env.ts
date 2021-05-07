@@ -12,21 +12,23 @@ class Env extends Base {
     this.hardKeys = [];
     this.name = 'env';
     Object.keys(process.env).forEach((key) => {
-      this.set(key, process.env[key]);
+      this.override(key, process.env[key]);
     });
   }
 
-  public set(key: string, value: any): void {
-    if (this.hardKeys.includes(key)) utils.raiseError(`Value of a overriden key ${key} cannot be updated`);
+  public set(key: string, value: any): boolean {
+    if (this.hardKeys.includes(key)) return false;
     this.store[key] = value;
+    return true;
   }
   public get(key: string): any {
     return this.store[key];
   }
-  public override(key: string, value: any): void {
-    if (this.hardKeys.includes(key)) utils.raiseError(`Value of a overriden key ${key} cannot be overriden`);
+  public override(key: string, value: any): boolean {
+    if (this.hardKeys.includes(key)) return false;
     this.hardKeys.push(key);
     this.store[key] = value;
+    return true;
   }
 }
 

@@ -30,6 +30,9 @@ class Env extends base_1.default {
         this.store = {};
         this.hardKeys = [];
         this.name = 'env';
+        Object.keys(process.env).forEach((key) => {
+            this.set(key, process.env[key]);
+        });
     }
     set(key, value) {
         if (this.hardKeys.includes(key))

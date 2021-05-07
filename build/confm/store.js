@@ -44,7 +44,7 @@ class Store extends base_1.default {
     getName() {
         return this.name;
     }
-    init(config, modes) {
+    init(config) {
         if (!config)
             return;
         const NODE_ENV = this.store['NODE_ENV'];

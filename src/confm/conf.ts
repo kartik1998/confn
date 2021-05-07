@@ -1,16 +1,14 @@
 import Store from './store';
-import Mode from './mode';
 
 class Conf {
   static _conf: Conf;
   static stores: Array<Store> = [new Store('env')];
-  static mode: Mode = new Mode();
   private constructor() {}
 
   public static init(config: any, storeName: string = 'env') {
     const store = Conf.getStore(storeName);
     if (store !== null) {
-      store.init(config, Conf.mode.getModes());
+      store.init(config);
     }
     return this._conf || (this._conf = new Conf());
   }
@@ -42,14 +40,6 @@ class Conf {
       if (store === null) return null;
       return store.get(key);
     }
-  }
-
-  public static addMode(mode: string): boolean {
-    return Conf.mode.addMode(mode);
-  }
-
-  public static removeMode(mode: string): boolean {
-    return Conf.mode.removeMode(mode);
   }
 }
 

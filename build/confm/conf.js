@@ -11,7 +11,7 @@ class Conf {
     }
     static addStore(name, readFromEnv = true) {
         let isStoreValid = true;
-        Conf.stores.forEach(store => {
+        Conf.stores.forEach((store) => {
             if (store.getName() === name)
                 isStoreValid = false;
         });
@@ -22,15 +22,23 @@ class Conf {
     }
     static getStore(name = 'env') {
         let store = null;
-        Conf.stores.forEach(s => {
+        Conf.stores.forEach((s) => {
             if (s.getName() === name)
                 store = s;
         });
         return store;
     }
-    static get() {
-        const env = Conf.getStore();
-        return env.fetch();
+    static get(key = null, storeName = 'env') {
+        if (key === null) {
+            const env = Conf.getStore();
+            return env.fetch();
+        }
+        else {
+            const store = Conf.getStore(storeName);
+            if (store === null)
+                return null;
+            return store.get(key);
+        }
     }
 }
 Conf.stores = [new store_1.default('env')];

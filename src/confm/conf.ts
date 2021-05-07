@@ -11,25 +11,31 @@ class Conf {
 
   public static addStore(name: string, readFromEnv: boolean = true): boolean {
     let isStoreValid = true;
-    Conf.stores.forEach(store => {
-        if(store.getName() === name) isStoreValid = false;
+    Conf.stores.forEach((store) => {
+      if (store.getName() === name) isStoreValid = false;
     });
-    if(!isStoreValid) return false;
+    if (!isStoreValid) return false;
     Conf.stores.push(new Store(name, readFromEnv));
     return true;
   }
 
   public static getStore(name: string = 'env'): Store | null {
-      let store: any = null;
-      Conf.stores.forEach(s => {
-          if(s.getName() === name) store = s;
-      })
-      return store;
+    let store: any = null;
+    Conf.stores.forEach((s) => {
+      if (s.getName() === name) store = s;
+    });
+    return store;
   }
 
-  public static get(): any {
-    const env: any = Conf.getStore();
-    return env.fetch();
+  public static get(key: string | null = null, storeName: string = 'env'): any {
+    if (key === null) {
+      const env: any = Conf.getStore();
+      return env.fetch();
+    } else {
+        const store = Conf.getStore(storeName);
+        if(store === null) return null;
+        return store.get(key);
+    }
   }
 }
 

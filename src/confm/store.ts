@@ -49,19 +49,21 @@ class Store extends Base {
   }
 
   public init(config: any): void {
-    if(!config) return;
+    if (!config) return;
     const NODE_ENV = this.store['NODE_ENV'];
     // setup defaults
-    Object.keys(config['defaults']).forEach(key => {
-      this.override(key, config['defaults'][key]);
-    })
-    Object.keys(config).forEach(key => {
-      if(key !== 'defaults' && (typeof NODE_ENV === 'string' && NODE_ENV === key)) {
-        Object.keys(config[key]).forEach(k => {
+    if (config['defaults']) {
+      Object.keys(config['defaults']).forEach((key) => {
+        this.override(key, config['defaults'][key]);
+      });
+    }
+    Object.keys(config).forEach((key) => {
+      if (key !== 'defaults' && typeof NODE_ENV === 'string' && NODE_ENV === key) {
+        Object.keys(config[key]).forEach((k) => {
           this.hardSet(k, config[key][k]);
-        })
+        });
       }
-    })
+    });
   }
 }
 

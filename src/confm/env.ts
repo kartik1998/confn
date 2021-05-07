@@ -11,6 +11,9 @@ class Env extends Base {
     this.store = {};
     this.hardKeys = [];
     this.name = 'env';
+    Object.keys(process.env).forEach((key) => {
+      this.set(key, process.env[key]);
+    });
   }
 
   public set(key: string, value: any): void {

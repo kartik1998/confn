@@ -1,6 +1,6 @@
 {
   "name": "confn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "build/index.js",
   "scripts": {
     "start": "node build/index.js",

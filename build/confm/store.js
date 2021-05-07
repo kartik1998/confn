@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const base_1 = __importDefault(require("./base"));
 class Store extends base_1.default {
-    constructor(name, readFromEnv = true) {
+    constructor(name = 'env', readFromEnv = true) {
         super();
         this.store = {};
         this.hardKeys = [];

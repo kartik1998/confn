@@ -1,4 +1,3 @@
-import Env from './confm/env';
 import Store from './confm/store';
 
 const store = new Store('memory');

@@ -5,7 +5,7 @@ class Store extends Base {
   private store: any;
   private hardKeys: string[]; // Array of all the overriden keys. Values of hardKeys CAN ONLY be updated by hardSet.
 
-  constructor(name: string, readFromEnv: boolean = true) {
+  constructor(name: string = 'env', readFromEnv: boolean = true) {
     super();
     this.store = {};
     this.hardKeys = [];

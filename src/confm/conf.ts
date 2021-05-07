@@ -47,6 +47,18 @@ class Conf {
     if(!store) return false;
     return store.set(key, value);
   }
+
+  public static override(key: string, value: any, storeName: string = 'env'): boolean {
+    const store = Conf.getStore(storeName);
+    if(!store) return false;
+    return store.override(key, value);
+  }
+
+  public static hardSet(key: string, value: any, storeName: string = 'env'): boolean {
+    const store = Conf.getStore(storeName);
+    if(!store) return false;
+    return store.hardSet(key, value);
+  }
 }
 
 export default Conf;

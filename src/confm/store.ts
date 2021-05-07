@@ -47,6 +47,22 @@ class Store extends Base {
   public getName(): string {
     return this.name;
   }
+
+  public init(config: JSON | undefined, modes: Array<string>): void {
+    if(!config) return;
+    const NODE_ENV = this.store['NODE_ENV'];
+    // setup defaults
+    Object.keys(config['defaults']).forEach(key => {
+      this.override(key, config['defaults'][key]);
+    })
+    Object.keys(config).forEach(key => {
+      if(key !== 'defaults' && (typeof NODE_ENV === 'string' && NODE_ENV === key)) {
+        Object.keys(config[key]).forEach(k => {
+          this.hardSet(k, config[key][k]);
+        })
+      }
+    })
+  }
 }
 
 export default Store;

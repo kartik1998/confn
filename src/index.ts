@@ -1,5 +1,2 @@
 import Conf from './confm/conf';
-
-Conf.init();
-
-console.log(Conf.get());
+import Mode from './confm/mode';

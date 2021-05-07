@@ -1,3 +1,3 @@
 import Conf from './confm/conf';
 
-export default Conf;
+module.exports = Conf;

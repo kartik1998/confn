@@ -7,7 +7,7 @@ class Conf {
   static mode: Mode = new Mode();
   private constructor() {}
 
-  public static init(config: JSON | undefined, storeName: string = 'env') {
+  public static init(config: any, storeName: string = 'env') {
     const store = Conf.getStore(storeName);
     if (store !== null) {
       store.init(config, Conf.mode.getModes());

@@ -48,7 +48,7 @@ class Store extends Base {
     return this.name;
   }
 
-  public init(config: JSON | undefined, modes: Array<string>): void {
+  public init(config: any, modes: Array<string>): void {
     if(!config) return;
     const NODE_ENV = this.store['NODE_ENV'];
     // setup defaults

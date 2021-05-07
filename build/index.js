@@ -3,11 +3,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const env_1 = __importDefault(require("./confm/env"));
-const env = new env_1.default();
-env.set('live', { set: 'two', ref: 'one' });
-env.override('work', { sde: '1' });
-console.log(env);
-console.log(env.get('npm_config_save_dev'));
-console.log(env.hardSet('npm_config_save_dev', 'yoo'));
-console.log(env.get('npm_config_save_dev'));
+const store_1 = __importDefault(require("./confm/store"));
+const store = new store_1.default('memory');
+console.log(store);

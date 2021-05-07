@@ -1,18 +1,20 @@
 import Base from './base';
 
-class Env extends Base {
+class Store extends Base {
   private name: string;
   private store: any;
   private hardKeys: string[]; // Array of all the overriden keys. Values of hardKeys CAN ONLY be updated by hardSet.
 
-  constructor() {
+  constructor(name: string, readFromEnv: boolean = true) {
     super();
     this.store = {};
     this.hardKeys = [];
-    this.name = 'env';
-    Object.keys(process.env).forEach((key) => {
-      this.override(key, process.env[key]);
-    });
+    this.name = name;
+    if(readFromEnv) {
+        Object.keys(process.env).forEach((key) => {
+            this.override(key, process.env[key]);
+        });
+    }
   }
 
   public set(key: string, value: any): boolean {
@@ -39,4 +41,4 @@ class Env extends Base {
   }
 }
 
-export default Env;
+export default Store;

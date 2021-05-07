@@ -31,6 +31,9 @@ class Store extends base_1.default {
     get(key) {
         return this.store[key];
     }
+    fetch() {
+        return this.store;
+    }
     override(key, value) {
         if (this.hardKeys.includes(key))
             return false;

@@ -10,10 +10,10 @@ class Store extends Base {
     this.store = {};
     this.hardKeys = [];
     this.name = name;
-    if(readFromEnv) {
-        Object.keys(process.env).forEach((key) => {
-            this.override(key, process.env[key]);
-        });
+    if (readFromEnv) {
+      Object.keys(process.env).forEach((key) => {
+        this.override(key, process.env[key]);
+      });
     }
   }
 
@@ -31,6 +31,10 @@ class Store extends Base {
 
   public get(key: string): any {
     return this.store[key];
+  }
+
+  public fetch(): any {
+    return this.store;
   }
 
   public override(key: string, value: any): boolean {

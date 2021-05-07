@@ -43,6 +43,10 @@ class Store extends Base {
     this.store[key] = value;
     return true;
   }
+
+  public getName(): string {
+    return this.name;
+  }
 }
 
 export default Store;

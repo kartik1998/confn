@@ -50,6 +50,18 @@ class Conf {
             return false;
         return store.set(key, value);
     }
+    static override(key, value, storeName = 'env') {
+        const store = Conf.getStore(storeName);
+        if (!store)
+            return false;
+        return store.override(key, value);
+    }
+    static hardSet(key, value, storeName = 'env') {
+        const store = Conf.getStore(storeName);
+        if (!store)
+            return false;
+        return store.hardSet(key, value);
+    }
 }
 Conf.stores = [new store_1.default('env')];
 exports.default = Conf;

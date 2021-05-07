@@ -34,8 +34,10 @@ class Conf {
     }
     static get(key = null, storeName = 'env') {
         if (key === null) {
-            const env = Conf.getStore();
-            return env.fetch();
+            const store = Conf.getStore(storeName);
+            if (store === null)
+                return null;
+            return store.fetch();
         }
         else {
             const store = Conf.getStore(storeName);

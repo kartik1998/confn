@@ -1,3 +1,3 @@
-import Conf from './confm/conf';
+import Conf from './confn/conf';
 
 module.exports = Conf;

@@ -1,18 +1,18 @@
-<p align="center"><img src="https://raw.githubusercontent.com/kartik1998/confm/master/logo.png"> </p>
+<p align="center"><img src="https://raw.githubusercontent.com/kartik1998/confn/master/logo.png"> </p>
 
 <p align="center"><b>Effortless setup for config-management in nodejs</b></p>
 <p align="center"><img src="https://img.shields.io/badge/config-management-brightgreen"></p>
 
-<blockquote>Easily setup config management for your node app with confm. It's designed to be a key-value store. Btw you can set strings, objects etc. as your values! Moreover it's designed to make it easy for you to switch between key, value pairs with respect to different environments (NODE_ENV=production, NODE_ENV=staging) etc. </blockquote>
+<blockquote>Easily setup config management for your node app with confn. It's designed to be a key-value store. Btw you can set strings, objects etc. as your values! Moreover it's designed to make it easy for you to switch between key, value pairs with respect to different environments (NODE_ENV=production, NODE_ENV=staging) etc. </blockquote>
 
 ## Usage
 
-It's very simple to setup and use <b> confm </b>. Confm also reads from the environment by default.
+It's very simple to setup and use <b> confn </b>. confn also reads from the environment by default.
 
 Sample:
 
 ```javascript
-const Conf = require('confm');
+const Conf = require('confn');
 Conf.set('HOST', '127.0.0.1');
 Conf.set('PORT', 9337);
 
@@ -38,7 +38,7 @@ USER:  root
 ## Intialize config
 
 ```javascript
-const Conf = require('confm');
+const Conf = require('confn');
 const config = {
   defaults: {
     HOST:  '127.0.0.1',
@@ -74,11 +74,11 @@ NODE_ENV=staging node script.js
 https://staging.co
 ```
 
-- Note after you have called `Conf.init(config)` you can fetch the keys from any file by using `const { KEY1, KEY2 } = require('confm').get()`
+- Note after you have called `Conf.init(config)` you can fetch the keys from any file by using `const { KEY1, KEY2 } = require('confn').get()`
 
 ###### Description:
 
-<b>confm</b> reads the key-value pairs from defaults key of the config passed in `Conf.init(config)`. If there is any key that is in defaults and also in the environment then the value in the enviroment is given precedence. This means that if you run the above script with `HOST=localhost node script.js` then the output would be `localhost` and not `127.0.0.1`.
+<b>confn</b> reads the key-value pairs from defaults key of the config passed in `Conf.init(config)`. If there is any key that is in defaults and also in the environment then the value in the enviroment is given precedence. This means that if you run the above script with `HOST=localhost node script.js` then the output would be `localhost` and not `127.0.0.1`.
 
 - Note: Keys present inside the `staging` or `production` key. i.e. the objects whose keys are used for a specific `NODE_ENV` have precedence over both environment <b>and</b> defaults keys. In the above example, in the production object the host and port both will override the defaults and environment keys.
 
@@ -87,7 +87,7 @@ https://staging.co
 - You can use the above three methods to set keys.
 
 ```javascript
-const Conf = require('confm');
+const Conf = require('confn');
 Conf.set('HOST', 1);
 Conf.override('HOST', 12);
 Conf.hardSet('HOST', 123);
@@ -98,12 +98,12 @@ Conf.hardSet('HOST', 123);
 
 ## Stores
 
-- <b>confm</b> by default uses a store `env` for config management. If you want to then you can also add more stores that you might want to use.
+- <b>confn</b> by default uses a store `env` for config management. If you want to then you can also add more stores that you might want to use.
 
 Sample code:
 
 ```javascript
-const Conf = require('confm');
+const Conf = require('confn');
 const config = {
   defaults: {
     HOST: '127.0.0.1',

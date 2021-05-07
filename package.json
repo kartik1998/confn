@@ -1,5 +1,5 @@
 {
-  "name": "confm",
+  "name": "confn",
   "version": "1.0.0",
   "main": "build/index.js",
   "scripts": {
@@ -22,11 +22,11 @@
     "environment"
   ],
   "bugs": {
-    "url": "https://github.com/kartik1998/confm/issues"
+    "url": "https://github.com/kartik1998/confn/issues"
   },
-  "homepage": "https://github.com/kartik1998/confm#readme",
+  "homepage": "https://github.com/kartik1998/confn#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kartik1998/confm.git"
+    "url": "git+https://github.com/kartik1998/confn.git"
   }
 }

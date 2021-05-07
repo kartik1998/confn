@@ -4,9 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const store_1 = __importDefault(require("./store"));
+const mode_1 = __importDefault(require("./mode"));
 class Conf {
     constructor() { }
-    static init() {
+    static init(config, storeName = 'env') {
+        const store = Conf.getStore(storeName);
+        if (store !== null) {
+            store.init(config, Conf.mode.getModes());
+        }
         return this._conf || (this._conf = new Conf());
     }
     static addStore(name, readFromEnv = true) {
@@ -40,6 +45,13 @@ class Conf {
             return store.get(key);
         }
     }
+    static addMode(mode) {
+        return Conf.mode.addMode(mode);
+    }
+    static removeMode(mode) {
+        return Conf.mode.removeMode(mode);
+    }
 }
 Conf.stores = [new store_1.default('env')];
+Conf.mode = new mode_1.default();
 exports.default = Conf;

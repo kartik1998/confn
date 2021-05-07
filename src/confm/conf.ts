@@ -7,7 +7,11 @@ class Conf {
   static mode: Mode = new Mode();
   private constructor() {}
 
-  public static init() {
+  public static init(config: JSON | undefined, storeName: string = 'env') {
+    const store = Conf.getStore(storeName);
+    if (store !== null) {
+      store.init(config, Conf.mode.getModes());
+    }
     return this._conf || (this._conf = new Conf());
   }
 
@@ -34,9 +38,9 @@ class Conf {
       const env: any = Conf.getStore();
       return env.fetch();
     } else {
-        const store = Conf.getStore(storeName);
-        if(store === null) return null;
-        return store.get(key);
+      const store = Conf.getStore(storeName);
+      if (store === null) return null;
+      return store.get(key);
     }
   }
 

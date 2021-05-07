@@ -10,10 +10,13 @@ class Mode {
         this.modes.push(mode);
         return true;
     }
+    getModes() {
+        return this.modes;
+    }
     removeMode(mode) {
         let modeFound = false;
         const tempModes = [];
-        this.modes.forEach(m => {
+        this.modes.forEach((m) => {
             if (m === mode) {
                 modeFound = true;
             }

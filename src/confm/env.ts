@@ -1,5 +1,4 @@
 import Base from './base';
-import * as utils from '../lib/utils';
 
 class Env extends Base {
   private name: string;

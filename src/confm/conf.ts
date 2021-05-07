@@ -34,7 +34,7 @@ class Conf {
   public static get(key: string | null = null, storeName: string = 'env'): any {
     if (key === null) {
       const store: any = Conf.getStore(storeName);
-      if(store === null) return null;
+      if (store === null) return null;
       return store.fetch();
     } else {
       const store = Conf.getStore(storeName);
@@ -45,19 +45,19 @@ class Conf {
 
   public static set(key: string, value: any, storeName: string = 'env'): boolean {
     const store = Conf.getStore(storeName);
-    if(!store) return false;
+    if (!store) return false;
     return store.set(key, value);
   }
 
   public static override(key: string, value: any, storeName: string = 'env'): boolean {
     const store = Conf.getStore(storeName);
-    if(!store) return false;
+    if (!store) return false;
     return store.override(key, value);
   }
 
   public static hardSet(key: string, value: any, storeName: string = 'env'): boolean {
     const store = Conf.getStore(storeName);
-    if(!store) return false;
+    if (!store) return false;
     return store.hardSet(key, value);
   }
 }

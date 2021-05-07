@@ -7,6 +7,7 @@ abstract class Base {
   public abstract fetch(): any;
   public abstract override(key: string, value: any): boolean;
   public abstract hardSet(key: string, value: any): boolean;
+  public abstract getName(): string;
 }
 
 export default Base;

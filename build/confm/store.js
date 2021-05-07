@@ -41,5 +41,8 @@ class Store extends base_1.default {
         this.store[key] = value;
         return true;
     }
+    getName() {
+        return this.name;
+    }
 }
 exports.default = Store;

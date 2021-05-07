@@ -1,5 +1,5 @@
-import Store from './confm/store';
+import Conf from './confm/conf';
 
-const store = new Store('memory');
+Conf.init();
 
-console.log(store.fetch());
+console.log(Conf.get());

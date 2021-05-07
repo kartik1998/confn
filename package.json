@@ -1,6 +1,6 @@
 {
   "name": "confn",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "build/index.js",
   "description": "A simple to implement config management node js library. Setup dev, staging, production, etc. config for your node app effortlessly.",
   "scripts": {
